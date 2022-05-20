@@ -4,19 +4,29 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProductsPageComponent } from './products-page/products-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
     component: HomePageComponent,
   },
   {
-    path: 'Products',
+    path: 'about',
+    component: AboutPageComponent,
+  },
+  {
+    path: 'products',
     component: ProductsPageComponent,
   },
   {
-    path: 'About',
-    component: AboutPageComponent,
+    path: 'products/:id',
+    component: ProductPageComponent,
   },
 ];
 
