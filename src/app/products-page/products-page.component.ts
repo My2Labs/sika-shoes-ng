@@ -1,21 +1,20 @@
-import {Component, OnInit} from "@angular/core";
-import {Product} from "../product.model"
-import { Products } from "../../Products"
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../product.model';
+import { ProductListingService } from '../../product-listing.service';
 
 @Component({
-  selector: "app-products-page",
-  templateUrl: "./products-page.component.html",
-  styleUrls: ["./products-page.component.css"]
+  selector: 'app-products-page',
+  templateUrl: './products-page.component.html',
+  styleUrls: ['./products-page.component.css'],
 })
 export class ProductsPageComponent implements OnInit {
-  products: Product[] = []
-  error = false
+  products: Product[] = [];
+  error = false;
+  constructor(private productListing: ProductListingService) {}
+
   ngOnInit() {
-    Products.forEach((item) => {
-      this.products = [
-        ...this.products,
-        new ImageItem({ src: item.imageUrl, name: item.name  }),
-      ];
+    this.productListing.getProducts().subscribe((response) => {
+      this.products = response.products;
     });
   }
 }
