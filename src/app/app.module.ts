@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -8,7 +7,32 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductsPageComponent } from './products-page/products-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProductListingComponent } from './product-listing/product-listing.component';
-// import { RouterModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomePageComponent,
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent,
+  },
+  {
+    path: 'products',
+    component: ProductsPageComponent,
+  },
+  {
+    path: 'products/:id',
+    component: ProductPageComponent,
+  },
+];
 
 @NgModule({
   declarations: [
@@ -20,7 +44,12 @@ import { ProductListingComponent } from './product-listing/product-listing.compo
     NavBarComponent,
     ProductListingComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    HttpClientModule, 
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })
