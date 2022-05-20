@@ -1,14 +1,14 @@
-import {NgModule} from "@angular/core";
-import {BrowserModule} from "@angular/platform-browser";
-
-import {AppComponent} from "./app.component";
-
-import {AboutPageComponent} from "./about-page/about-page.component";
-import {HomePageComponent} from "./home-page/home-page.component";
-import {ProductPageComponent} from "./product-page/product-page.component";
-import {ProductsPageComponent} from "./products-page/products-page.component";
-import {NavBarComponent} from "./nav-bar/nav-bar.component";
-import {ProductListingComponent} from "./product-listing/product-listing.component";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AboutPageComponent } from './about-page/about-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { ProductsPageComponent } from './products-page/products-page.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ProductListingComponent } from './product-listing/product-listing.component';
+// import { RouterModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +18,10 @@ import {ProductListingComponent} from "./product-listing/product-listing.compone
     ProductPageComponent,
     ProductsPageComponent,
     NavBarComponent,
-    ProductListingComponent
+    ProductListingComponent,
   ],
-  imports: [
-    BrowserModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
