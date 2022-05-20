@@ -1,10 +1,11 @@
 <div id="product-page">
   <h2>Products</h2>
+  <app-product-page></app-product-page>
   <p *ngIf="error; else productList" class="error">There was a problem getting the product list.</p>
   <ng-template #productList>
     <ul #productList>
       <li *ngFor="let product of products">
-        <a href="#">
+        <a routerLink="/products/:id">
           <app-product-listing
             id="{{product.id}}"
             [name]="product.name"

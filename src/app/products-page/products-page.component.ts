@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Product} from "../product.model"
+import { Products } from "../../Products"
 
 @Component({
   selector: "app-products-page",
@@ -10,6 +11,11 @@ export class ProductsPageComponent implements OnInit {
   products: Product[] = []
   error = false
   ngOnInit() {
-    // Get products here
+    Products.forEach((item) => {
+      this.products = [
+        ...this.products,
+        new ImageItem({ src: item.imageUrl, name: item.name  }),
+      ];
+    });
   }
 }
