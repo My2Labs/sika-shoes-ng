@@ -1,3 +1,8 @@
+Deployed Site: https://gregarious-meerkat-1007d5.netlify.app/home
+
+
+
+
 # Sika Shoes: Routing and Services
 
 ![Shoe store](sika-shoes.png)
